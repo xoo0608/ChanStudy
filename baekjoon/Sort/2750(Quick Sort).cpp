@@ -45,7 +45,7 @@ int main()
         cin>>arr[i];
     }
 
-    quick_sort(arr, 0, input);
+    quick_sort(arr, 0, input - 1);
 
     for(int i=0;i<input;i++)
     {
