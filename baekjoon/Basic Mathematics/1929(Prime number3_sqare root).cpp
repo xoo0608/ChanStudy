@@ -1,5 +1,5 @@
-//Prime number3_sqare root
-//제곱근를 활용한 알고리즘(시간초과)
+//Prime number3_Sqare root
+//제곱근를 활용한 알고리즘
 #include<iostream>
 #include<cmath>
 using namespace std;
@@ -23,7 +23,7 @@ int main()
 
     for(int i = num1 ; i <= num2 ; i++)
     {
-        if(isprimenum(i)) cout<<i<<endl;
+        if(isprimenum(i)) cout<<i<<'\n';
     }
 
     return 0;
