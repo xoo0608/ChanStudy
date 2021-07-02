@@ -6,12 +6,14 @@ using namespace std;
 
 int main()
 {
+    cin.tie(0);
+    cin.sync_with_stdio(0);
     int T;
     cin>>T;
 
     for(int i = 0 ; i < T ; i++)
     {
-        bool flag = false;
+        bool flag = false, reverse = false;
         string p;
         cin>>p;
 
@@ -20,7 +22,7 @@ int main()
 
         deque<int> dq;
 
-        string arr, temp;
+        string arr, temp = "";
         cin>>arr;
 
         for(int j = 0 ; j < arr.length() ; j++)
@@ -46,30 +48,10 @@ int main()
                     flag = true;
                     break;
                 }
+                else if(reverse) dq.pop_back();
                 else dq.pop_front();
             }
-            else if(p[j] == 'R')
-            {
-                if(dq.empty()) 
-                {
-                    flag = true;
-                    break;
-                }
-                else
-                {
-                    deque<int> dq1(dq);
-                    dq.clear();
-                    while(true)
-                    {
-                        if(dq1.empty()) break;
-                        else
-                        {
-                            dq.push_back(dq1.back());
-                            dq1.pop_back();
-                        }
-                    }
-                }
-            }
+            else if(p[j] == 'R') reverse = !reverse;
         }
 
         if(flag) cout<<"error"<<endl;
@@ -78,10 +60,19 @@ int main()
             cout<<"[";
             while(true)
             {
-                cout<<dq.front();
-                dq.pop_front();
+                if(dq.empty()) break;
+                if(reverse)
+                {
+                    cout<<dq.back();
+                    dq.pop_back();
+                }
+                else
+                {
+                    cout<<dq.front();
+                    dq.pop_front();
+                }
+                
                 if(!dq.empty()) cout<<",";
-                else break;
             }
             cout<<"]"<<endl;
         }
