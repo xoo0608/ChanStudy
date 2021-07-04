@@ -1,7 +1,6 @@
 //Find
 #include <iostream>
 #include <algorithm>
-#include <vector>
 using namespace std;
 
 int arr[100001];
