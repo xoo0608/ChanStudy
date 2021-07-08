@@ -1,4 +1,4 @@
-//Min Heap
+//Middle
 #include <iostream>
 #include <vector>
 #include <queue>
